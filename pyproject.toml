@@ -1,0 +1,31 @@
+[project]
+name = "ai-test"
+version = "0.1.0"
+description = "Mon environnement IA local ultra-récent"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "faster-whisper>=1.2.1",
+    "kokoro>=0.9.4",
+    "noisereduce>=3.0.3",
+    "numpy>=2.4.0",
+    "ollama>=0.6.2",
+    "onnxruntime-gpu>=1.18.0",
+    "opencv-python>=4.10.0.84",
+    "scipy>=1.13.0",
+    "sounddevice>=0.5.5",
+    "torch==2.12.0+cu126", # On garde la version exacte
+    "transformers>=5.0.0",
+    "ultralytics>=8.2.0",
+]
+
+[tool.uv.sources]
+# On dit à UV de lire le fichier local que vous venez de télécharger
+torch = { path = "./torch-2.12.0+cu126-cp313-cp313-win_amd64.whl" }
+noisereduce = { index = "jfrog" }
+
+[[tool.uv.index]]
+name = "jfrog"
+url = "https://cochlear.jfrog.io/artifactory/api/pypi/coh-esw-pip/simple"
+explicit = true 
+default = true
